@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+}
+
+body {
+  font-family: var(--font-sans), sans-serif;
+  background-color: #f4f6f8;
+}
+
+button:not(:disabled),
+a[href],
+label:has(input:not(:disabled)),
+summary {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+@utility panel {
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 14px rgb(15 23 42 / 0.05);
+}
+
+@keyframes loading-track {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(340%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading-track {
+    animation: loading-track 1.15s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+}
